@@ -10,34 +10,122 @@
       content="Web site created using create-react-app"
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <!--
-      manifest.json provides metadata used when your web app is installed on a
-      user's mobile device or desktop. See https://developers.google.com/web/fundamentals/web-app-manifest/
-    -->
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <!--
-      Notice the use of %PUBLIC_URL% in the tags above.
-      It will be replaced with the URL of the `public` folder during the build.
-      Only files inside the `public` folder can be referenced from the HTML.
-
-      Unlike "/favicon.ico" or "favicon.ico", "%PUBLIC_URL%/favicon.ico" will
-      work correctly both with client-side routing and a non-root public URL.
-      Learn how to configure a non-root public URL by running `npm run build`.
-    -->
     <title>React App</title>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!--
-      This HTML file is a template.
-      If you open it directly in the browser, you will see an empty page.
-
-      You can add webfonts, meta tags, or analytics to this file.
-      The build step will place the bundled scripts into the <body> tag.
-
-      To begin the development, run `npm start` or `yarn start`.
-      To create a production bundle, use `npm run build` or `yarn build`.
-    -->
+    <svg style="display: none;">
+      <symbol id="mark" viewBox="0 0 12 16">
+        <path
+          d="M10.3653 1.95952V12.7717L6.76125 9.6245L6.05059 9.01536L5.33993 9.6245L1.73587 12.7717V1.95952H10.3653ZM11.4313 0.842773H0.568359V15.1067L5.99983 10.3859L11.4313 15.1067V0.842773Z"
+          stroke="#707070" stroke-width="0.2" />
+      </symbol>
+    </svg>
+  
+    <svg style="display: none;">
+      <symbol id="search" viewBox="0 0 16 16">
+        <path fill-rule="evenodd" clip-rule="evenodd"
+          d="M10.9183 9.66652H10.2567L10.0267 9.43818C10.8392 8.49068 11.3333 7.26235 11.3333 5.91652C11.3333 2.92485 8.90833 0.499853 5.91667 0.499853C2.925 0.499853 0.5 2.92485 0.5 5.91652C0.5 8.90819 2.925 11.3332 5.91667 11.3332C7.2625 11.3332 8.49 10.8399 9.4375 10.0282L9.6675 10.2565V10.9165L13.8325 15.0757L15.075 13.8332L10.9183 9.66652ZM5.9169 9.66645C3.84523 9.66645 2.1669 7.98811 2.1669 5.91645C2.1669 3.84561 3.84523 2.16645 5.9169 2.16645C7.98773 2.16645 9.6669 3.84561 9.6669 5.91645C9.6669 7.98811 7.98773 9.66645 5.9169 9.66645Z" />
+      </symbol>
+    </svg>
+  
+    <svg style="display: none;">
+      <symbol id="notifications" viewBox="0 0 14 16">
+        <path
+          d="M9.03019 3.24262H8.01496V2.63348C8.01496 2.07511 7.55811 1.66902 7.0505 1.66902C6.49212 1.66902 6.08603 2.12587 6.08603 2.63348V3.24262H5.0708V2.63348C5.0708 1.51673 5.98451 0.603027 7.10126 0.603027C8.21801 0.603027 9.13171 1.51673 9.13171 2.63348L9.03019 3.24262Z"
+          stroke="#707070" stroke-width="0.2" />
+        <path
+          d="M6.99952 15.73C5.62896 15.73 4.51221 14.6133 4.51221 13.2935H5.52743C5.52743 14.0549 6.13657 14.7148 6.94876 14.7148H6.99952C7.76094 14.7148 8.42084 14.1056 8.42084 13.2935H9.43606C9.48683 14.6133 8.37007 15.73 6.99952 15.73Z"
+          stroke="#707070" stroke-width="0.2" />
+        <path
+          d="M13.2942 13.9023H0.705358C0.502313 13.9023 0.350028 13.8008 0.248505 13.6485C0.146983 13.4962 0.146983 13.2932 0.248505 13.1409L1.72059 10.8567V7.91249C1.72059 4.96833 4.05561 2.6333 6.94901 2.6333C9.84241 2.6333 12.1774 5.01909 12.1774 7.91249V10.8567L13.6495 13.1409C13.751 13.2932 13.751 13.4962 13.6495 13.6485C13.6495 13.8008 13.4972 13.9023 13.2942 13.9023ZM1.66982 12.8363H12.3297L11.2637 11.212C11.213 11.1105 11.1622 11.0089 11.1622 10.9074V7.81097C11.1622 5.47594 9.28404 3.54701 6.94901 3.54701C4.61399 3.54701 2.73581 5.47594 2.73581 7.81097V10.9074C2.73581 11.0089 2.68505 11.1105 2.63429 11.212L1.66982 12.8363Z"
+          stroke="#707070" stroke-width="0.2" />
+    </symbol>
+    </svg>
+  
+    <header class="header" data-component="header">
+      <div class="container">
+        <div class="header-top-0">
+          <div class="header-left">
+            <div class="header-title" data-role="header/title">
+              Бюро настолок
+            </div>
+            <div class="header-burger" data-role="header/burger">
+              <span></span>
+            </div>
+            <nav class="header-nav" data-role="header/nav">
+              <a class="header-nav-item" href="catalog.html">Каталог</a>
+              <a class="header-nav-item" href="blog.html">Блог</a>
+              <a class="header-nav-item" href="projects.html">Наши проекты</a>
+              <a class="header-nav-item" href="flea-market.html">Барахолка</a>
+              <a class="header-nav-item" href="about.html">О нас</a>
+            </nav>
+          </div>
+  
+          <div class="header-right">
+            <input class="header-input" type="text" placeholder="Поиск" data-role="header/input">
+  
+            <div class="header-icons">
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item" id="search-icon">
+                  <use xlink:href="#search"></use>
+                </svg>
+              </a>
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item">
+                  <use xlink:href="#mark"></use>
+                </svg>
+              </a>
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item">
+                  <use xlink:href="#notifications"></use>
+                </svg>
+              </a>
+            </div>
+  
+            <div class="header-profile">
+              <div class="header-profile-avatar">
+                <img src="img/avatar.jpg" alt="">
+              </div>
+              <div class="header-profile-content">
+                <div class="header-profile-name" data-role="header/userName">
+                  <a href="#">Иван Иваныч</a>
+                </div>
+                <div class="header-profile-menu" data-role="header/userMenu">
+                  <a class="header-profile-link" href="#">Личный кабинет</a>
+                  <a class="header-profile-link" href="#">Панель администратора</a>
+                </div>
+              </div>
+            </div>
+          </div> <!-- /.header-right -->
+        </div> <!-- /.header-top-0 -->
+      </div>
+      <div class="header-top-1">
+        Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, adipisci velit...
+      </div>
+    </header>
+  
+    <div class="container--sm" data-role="container--sm">
+      <div class="wrapper" data-role="wrapper">
+        <img class="arrow-left dn2" src="img/icons/arrow-right.svg" alt="" data-role="arrow-left">
+        <div data-component="main-slider" class="slider"></div>
+        <img class="arrow-right" src="img/icons/arrow-right.svg" alt="" data-role="arrow-right">
+      </div>
+    </div>
+  
+    <div data-component="categories" class="categories"></div>
+  
+    <div class="test" data-component="quiz">
+      <div class="container--lg">
+        <div class="test-inner">
+          <div class="test-content">
+            <div class="test-title">Neque porro quisquam est qui dolorem ipsu?</div>
+            <div class="test-subtitle">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, adipisci velit...</div>
+            <button class="btn" data-role="test-btn">Пройти тест</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
   </body>
 </html>
