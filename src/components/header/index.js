@@ -53,6 +53,7 @@ function Header(context) {
   };
 
   const closeSearcher = () => {
+    input.classList.remove('db');
     input.classList.remove('active');
     searchIcon.classList.remove('active');
     nav.classList.remove('dn');
