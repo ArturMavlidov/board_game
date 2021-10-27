@@ -82,52 +82,63 @@ export function QuizModal(context) {
     testTitle.textContent = 'Ваш результат:';
     if (trueAnswersCounter == 0) {
       testSubtitle.textContent = 'Могло быть и лучше';
-    } else if (trueAnswersCounter == 1) {
-      testSubtitle.textContent = 'Неплохо, можете попробовать снова';
-    } else if (trueAnswersCounter == 2) {
-      testSubtitle.textContent = 'Хорошо!';
-    } else if (trueAnswersCounter == 3) {
+    } else if (trueAnswersCounter > 0 && trueAnswersCounter < 4) {
+      testSubtitle.textContent = 'Неплохо!';
+    } else if (trueAnswersCounter > 3) {
       testSubtitle.textContent = 'Отлично!';
     }
 
     testResult.textContent = `${trueAnswersCounter} из ${quizData.length}`;
-    testBtn.textContent = 'Пройти заново';
+  }
+
+  const removeMissingItems = () => {
+    testBtn.remove();
+  }
+
+  const changeInput = ({ target }) => {
+    if (target.dataset.isTrue == 'true') {
+      target.classList.add('true');
+      trueAnswersCounter++
+    } else {
+      target.classList.add('false');
+    }
+
+    console.log(trueAnswersCounter);
+    inputs.forEach(item => {
+      item.setAttribute('disabled', 'disabled');
+    });
+
+    modalNextBtn.classList.add('active');
+  }
+
+  const clickModalNextBtn = () => {
+    activeQuestion++;
+    if (activeQuestion >= quizData.length) {
+      hide();
+      buildTestResult();
+      return removeMissingItems();
+    } else {
+      reset();
+      buildModalInner();
+      setElements();
+      bindEvents();
+    }
   }
 
   const bindEvents = () => {
     inputs.forEach(element => {
-      element.addEventListener('change', ({ target }) => {
-        if (target.dataset.isTrue == 'true') {
-          target.classList.add('true');
-          trueAnswersCounter++
-        } else {
-          target.classList.add('false');
-        }
-
-        console.log(trueAnswersCounter);
-        inputs.forEach(item => {
-          item.setAttribute('disabled', 'disabled');
-        });
-
-        modalNextBtn.classList.add('active');
-      });
+      element.addEventListener('change', changeInput)
     });
 
-    modalNextBtn.addEventListener('click', () => {
-        activeQuestion++;
-        if (activeQuestion >= quizData.length) {
-          hide();
-          buildTestResult();
-        } else {
-          reset();
-          buildModalInner();
-          setElements();
-          bindEvents();
-        }
-    })
+    modalNextBtn.addEventListener('click', clickModalNextBtn);
   };
 
-
+  const unbindEvents = () => {
+    inputs.forEach(element => {
+      element.removeEventListener('change', changeInput)
+    });
+    modalNextBtn.removeEventListener('click', clickModalNextBtn);
+  }
 
   const fetchData = () => {
     getQuizData().then((data) => {
@@ -145,10 +156,15 @@ export function QuizModal(context) {
 
   init();
 
+  const destroy = () => {
+    unbindEvents();
+  }
+
   return {
     show,
     hide,
-    init
+    init,
+    destroy
   };
 }
 

@@ -80,7 +80,7 @@ function Header(context) {
     document.addEventListener('click', closeUserMenu);
   }
 
-  const unBindEvents = () => {
+  const unbindEvents = () => {
     searchIcon.removeEventListener('click', clickSearcher);
     userName.removeEventListener('click', clickUserName);
     document.removeEventListener('click', closeUserMenu);
@@ -91,7 +91,7 @@ function Header(context) {
   }
 
   const destroy = () => {
-    unBindEvents();
+    unbindEvents();
   }
 
   init();
