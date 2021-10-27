@@ -11,7 +11,7 @@
     />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>React App</title>
+    <title>Бюро настолок</title>
   </head>
   <body>
     <svg style="display: none;">
@@ -21,14 +21,14 @@
           stroke="#707070" stroke-width="0.2" />
       </symbol>
     </svg>
-  
+
     <svg style="display: none;">
       <symbol id="search" viewBox="0 0 16 16">
         <path fill-rule="evenodd" clip-rule="evenodd"
           d="M10.9183 9.66652H10.2567L10.0267 9.43818C10.8392 8.49068 11.3333 7.26235 11.3333 5.91652C11.3333 2.92485 8.90833 0.499853 5.91667 0.499853C2.925 0.499853 0.5 2.92485 0.5 5.91652C0.5 8.90819 2.925 11.3332 5.91667 11.3332C7.2625 11.3332 8.49 10.8399 9.4375 10.0282L9.6675 10.2565V10.9165L13.8325 15.0757L15.075 13.8332L10.9183 9.66652ZM5.9169 9.66645C3.84523 9.66645 2.1669 7.98811 2.1669 5.91645C2.1669 3.84561 3.84523 2.16645 5.9169 2.16645C7.98773 2.16645 9.6669 3.84561 9.6669 5.91645C9.6669 7.98811 7.98773 9.66645 5.9169 9.66645Z" />
       </symbol>
     </svg>
-  
+
     <svg style="display: none;">
       <symbol id="notifications" viewBox="0 0 14 16">
         <path
@@ -42,7 +42,7 @@
           stroke="#707070" stroke-width="0.2" />
     </symbol>
     </svg>
-  
+
     <header class="header" data-component="header">
       <div class="container">
         <div class="header-top-0">
@@ -61,10 +61,10 @@
               <a class="header-nav-item" href="about.html">О нас</a>
             </nav>
           </div>
-  
+
           <div class="header-right">
             <input class="header-input" type="text" placeholder="Поиск" data-role="header/input">
-  
+
             <div class="header-icons">
               <a href="#" class="header-icons-link">
                 <svg class="header-icons-item" id="search-icon">
@@ -82,10 +82,10 @@
                 </svg>
               </a>
             </div>
-  
+
             <div class="header-profile">
               <div class="header-profile-avatar">
-                <img src="img/avatar.jpg" alt="">
+                <img src="../src/img/avatar.jpg" alt="">
               </div>
               <div class="header-profile-content">
                 <div class="header-profile-name" data-role="header/userName">
@@ -104,7 +104,7 @@
         Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, adipisci velit...
       </div>
     </header>
-  
+
     <div class="container--sm" data-role="container--sm">
       <div class="wrapper" data-role="wrapper">
         <img class="arrow-left dn2" src="img/icons/arrow-right.svg" alt="" data-role="arrow-left">
@@ -112,20 +112,20 @@
         <img class="arrow-right" src="img/icons/arrow-right.svg" alt="" data-role="arrow-right">
       </div>
     </div>
-  
+
     <div data-component="categories" class="categories"></div>
-  
+
     <div class="test" data-component="quiz">
       <div class="container--lg">
         <div class="test-inner">
           <div class="test-content">
-            <div class="test-title">Neque porro quisquam est qui dolorem ipsu?</div>
-            <div class="test-subtitle">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, adipisci velit...</div>
-            <button class="btn" data-role="test-btn">Пройти тест</button>
+            <div class="test-title" data-role="test-title">Neque porro quisquam est qui dolorem ipsu?</div>
+            <div class="test-subtitle" data-role="test-subtitle">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, adipisci velit...</div>
+            <div class="test-result" data-role="test-result"></div>
+            <button class="test-btn btn" data-role="test-btn">Пройти тест</button>
           </div>
         </div>
       </div>
     </div>
-  
   </body>
 </html>

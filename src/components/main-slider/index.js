@@ -150,5 +150,4 @@ export default function mainSlider(context) {
     init,
     destroy
   };
-
 }

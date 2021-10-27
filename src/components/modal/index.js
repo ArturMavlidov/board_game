@@ -11,21 +11,20 @@ export function Modal(config) {
   let modalInnerElement;
   let closeBtnElement;
 
-  const buildModalContent = () => {
+  const buildModalWindow = () => {
     return `
       <div class="modal ${config.extraClass}" data-role="modal" >
         <div class="modal-inner" data-role="modal-inner">
-        ${config.content}
         <div class="modal-close" data-role="modal-close"></div>
         </div>
       </div>
     `;
   };
 
-  const buildModal = () => {
+  const buildModal= () => {
     addHtml({
       component: document.body,
-      html: buildModalContent()
+      html: buildModalWindow()
     });
   };
 

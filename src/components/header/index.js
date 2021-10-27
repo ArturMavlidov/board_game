@@ -40,8 +40,13 @@ function Header(context) {
     isOpenBurger ? closeBurger() : showBurger();
   });
 
-  const showSearcher = () => {
+  const changeSearcherClass= () => {
     input.classList.add('active');
+  }
+
+  const showSearcher = () => {
+    input.classList.add('db');
+    window.requestAnimationFrame(changeSearcherClass)
     searchIcon.classList.add('active');
     nav.classList.add('dn');
     isOpenSearcher = true;
@@ -54,19 +59,46 @@ function Header(context) {
     isOpenSearcher = false;
   };
 
-  searchIcon.addEventListener('click', function () {
+  const clickSearcher = () => {
     isOpenSearcher ? closeSearcher() : showSearcher();
-  });
+  }
 
-  userName.addEventListener('click', () => {
+  const clickUserName = () => {
     userMenu.classList.toggle('active');
-  });
+  }
 
-  document.addEventListener('click', (event) => {
-    if (!event.target.closest('.header-profile-name') && (!event.target.closest('.header-profile-menu'))) {
+  const closeUserMenu = ({ target }) => {
+    if (!target.closest('.header-profile-name') && (!target.closest('.header-profile-menu'))) {
       userMenu.classList.remove('active');
     }
-  });
+  }
+
+  const bindEvents = () => {
+    searchIcon.addEventListener('click', clickSearcher);
+    userName.addEventListener('click', clickUserName);
+    document.addEventListener('click', closeUserMenu);
+  }
+
+  const unBindEvents = () => {
+    searchIcon.removeEventListener('click', clickSearcher);
+    userName.removeEventListener('click', clickUserName);
+    document.removeEventListener('click', closeUserMenu);
+  }
+
+  const init = () => {
+    bindEvents();
+  }
+
+  const destroy = () => {
+    unBindEvents();
+  }
+
+  init();
+
+  return {
+    init,
+    destroy
+  };
 }
 
 export default Header;

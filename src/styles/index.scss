@@ -255,6 +255,7 @@ body {
 
   &-input {
     display: none;
+    opacity: 0;
     max-width: 178px;
     padding: 9px 30px 9px 12px;
     border: none;
@@ -265,13 +266,14 @@ body {
     left: 26px;
     background-color: lighten($green, 5%);
     color: $white;
+    transition: opacity .1s linear;
 
     &::placeholder {
       color: $white;
     }
 
     &.active {
-      display: block;
+      opacity: 1;
     }
 
     @media (max-width: 776px) {
@@ -663,22 +665,6 @@ body {
   background-color: #009688;
 }
 
-/* Helpers */
-
-.white {
-  color: #fff;
-}
-
-.dn {
-  @media (max-width: 1164px) {
-    display: none;
-  }
-}
-
-.dn2 {
-  display: none;
-}
-
 /* Categories */
 
 .categories {
@@ -746,7 +732,7 @@ body {
 
   &-inner {
     padding: 35px 0 47px;
-    background: url('../img/test-bg.jpg');
+    background: url("../img/test-bg.jpg");
     background-size: cover;
   }
 
@@ -788,7 +774,6 @@ body {
   }
 
   &-subtitle {
-    margin-bottom: 34px;
     color: #bdbdbd;
 
     @media (max-width: 890px) {
@@ -801,8 +786,15 @@ body {
     }
   }
 
+  &-result {
+    margin-top: 15px;
+    font-size: 18px;
+    font-weight: 500;
+  }
+
   &-btn {
-    margin: 0 auto;
+    display: block;
+    margin: 20px auto 0;
 
     @media (max-width: 400px) {
       font-size: 14px;
@@ -834,7 +826,7 @@ body {
 
     &::before {
       position: absolute;
-      content: '';
+      content: "";
       width: 1px;
       height: 100%;
       background: #000;
@@ -845,7 +837,7 @@ body {
 
     &::after {
       position: absolute;
-      content: '';
+      content: "";
       width: 1px;
       height: 100%;
       background: #000;
@@ -903,6 +895,7 @@ body {
     flex-direction: column;
 
     &__item {
+      position: relative;
       display: flex;
       margin-bottom: 15px;
 
@@ -912,46 +905,74 @@ body {
     }
   }
 
-  &-input {
-    display: none;
+  &-label {
+    padding-left: 1.5em;
   }
 
-  &-label {
+  &-input {
+    position: absolute;
+    appearance: none;
+  }
+
+  &-radio {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    left: 0;
+    background-image: url("../img/icons/radio.svg");
+  }
+
+  &-input.true:checked + * &-radio {
+    background-image: url("../img/icons/radio-true.svg");
+  }
+
+  &-input.true:checked + &-label {
+    color: #009688;
+  }
+
+  &-input.false:checked + * &-radio {
+    background-image: url("../img/icons/radio-false.svg");
+  }
+
+  &-input.false:checked + &-label {
+    color: #eb575b;
+  }
+
+  &-button {
     position: relative;
-    left: 24px;
+  }
+
+  &-next {
+    padding: 6px 35px;
+    position: absolute;
+    right: 0;
+    opacity: 0.7;
+    pointer-events: none;
 
     &.active {
-      color: #009688;
+      opacity: 1;
+      cursor: pointer;
+      pointer-events: all;
     }
   }
+}
 
-  &-label::before {
-    content: '';
-    display: block;
-    width: 16px;
-    height: 16px;
-    background-color: #fff;
-    position: absolute;
-    left: -25px;
-    border: 1px solid #010101;
-    border-radius: 50%;
-    cursor: pointer;
-  }
+/* Helpers */
 
-  &-label.active::before {
-    border-color: #009688;
-  }
+.white {
+  color: #fff;
+}
 
-  &-label.active::after {
-    content: '';
-    display: block;
-    width: 8px;
-    height: 8px;
-    background-color: #009688;
-    position: absolute;
-    top: 4px;
-    left: -21px;
-    border-radius: 50%;
-    cursor: pointer;
+.db {
+  display: block;
+}
+
+.dn {
+  @media (max-width: 1164px) {
+    display: none;
   }
+}
+
+.dn2 {
+  display: none;
 }

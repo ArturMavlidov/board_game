@@ -1,7 +1,7 @@
 export const categoryItems = [
   {
     image: {
-      src: 'https://i.imgur.com/Bs5a83X.jpg',
+      src: 'https://i.ibb.co/Bz7ZBt6/Frame-4.jpg',
       alt: 'Категория'
     },
     title: 'Для одного',
@@ -9,7 +9,7 @@ export const categoryItems = [
   },
   {
     image: {
-      src: 'https://i.imgur.com/oGJvEfo.jpg',
+      src: 'https://i.ibb.co/hBvxk7Z/Frame-3.jpg',
       alt: 'Категория'
     },
     title: 'Советские',
@@ -17,7 +17,7 @@ export const categoryItems = [
   },
   {
     image: {
-      src: 'https://i.imgur.com/yEk30pW.jpg',
+      src: 'https://i.ibb.co/7QGQyJ5/Frame-1.jpg',
       alt: 'Категория'
     },
     title: 'На мероприятие',
@@ -25,7 +25,7 @@ export const categoryItems = [
   },
   {
     image: {
-      src: 'https://i.imgur.com/0xf4jWK.jpg',
+      src: 'https://i.ibb.co/m6yQTRb/Frame.jpg',
       alt: 'Категория'
     },
     title: 'Для детей',
@@ -33,7 +33,7 @@ export const categoryItems = [
   },
   {
     image: {
-      src: 'https://i.imgur.com/OcFUgo0.jpg',
+      src: 'https://i.ibb.co/nDNqxv7/Frame-2.jpg',
       alt: 'Категория'
     },
     title: 'Для двоих',
