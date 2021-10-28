@@ -52,12 +52,12 @@ export function Modal(config) {
 
   const bindEvents = () => {
     document.addEventListener('keyup', (event) => {
-      if (event.code == 'Escape') {
+      if (event.code === 'Escape') {
         hide();
       }
     });
     document.addEventListener('click', (event) => {
-    if (modalElement && event.target == modalElement || closeBtnElement && event.target == closeBtnElement) {
+    if (modalElement && event.target === modalElement || closeBtnElement && event.target === closeBtnElement) {
       hide();
     }
   });

@@ -70,7 +70,7 @@ export default function mainSlider(context) {
 
     if (count < 0) {
       count = sliderItem.length;
-    } else if (count == 0) {
+    } else if (count === 0) {
       arrowLeft.classList.add('dn2');
     }
     arrowRight.classList.remove('dn2');
@@ -87,7 +87,7 @@ export default function mainSlider(context) {
       count = 0;
       arrowLeft.classList.add('dn2');
       arrowRight.classList.remove('dn2');
-    } else if (count == sliderItem.length - 1) {
+    } else if (count === sliderItem.length - 1) {
       arrowRight.classList.add('dn2');
     }
 
@@ -127,7 +127,7 @@ export default function mainSlider(context) {
       });
       points[count].classList.add('active');
       count > 0 ? arrowLeft.classList.remove('dn2') : arrowLeft.classList.add('dn2');
-      count == points.length - 1 ?  arrowRight.classList.add('dn2') : arrowRight.classList.remove('dn2');
+      count === points.length - 1 ?  arrowRight.classList.add('dn2') : arrowRight.classList.remove('dn2');
     }
   }
 

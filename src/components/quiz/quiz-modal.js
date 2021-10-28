@@ -1,6 +1,7 @@
 import { Modal } from '../modal';
 import { getQuizData } from './fakeData';
 import { selectRole, selectRoles, addHtml } from "../../helpers";
+import buildContent from './build-content';
 
 export function QuizModal(context) {
   let activeQuestion = 0;
@@ -27,35 +28,6 @@ export function QuizModal(context) {
     modal.hide();
   };
 
-  const buildContent = () => {
-    return `
-      <div class="modal-close" data-role="modal-close"></div>
-      <div class="modal-wrapper">
-        <div class="modal-count">${quizData[activeQuestion].count}</div>
-        <div class="container--modal">
-          <span class="modal-title">${quizData[activeQuestion].question}</span>
-          <div class="modal-subtitle">${quizData[activeQuestion].subtitle}</div>
-          <div class="modal-answers">
-            ${
-              quizData[activeQuestion].answers.map(item => {
-                return (
-                    `<div class="modal-answers__item">
-                        <input class="modal-input" type="radio" name="answer" id="${item.title}" value="${item.title}" data-is-true=${Boolean(item.isTrue)} data-role="quiz-modal/input">
-                        <label for="${item.title}" class="modal-label modal-option" data-role="modal-label">${item.title}
-                        <span class="modal-radio"></span>
-                    </div>`
-                );
-              })
-            }
-          </div>
-          <div class="modal-button">
-            <button class="modal-next btn" data-role="modal-next">Next</button>
-          </div>
-        </div>
-      </div>
-    `;
-  };
-
   const initModal = () => {
     modal = Modal({});
   };
@@ -71,7 +43,7 @@ export function QuizModal(context) {
 
   const buildModalInner = () => {
     modalInner = selectRole('modal-inner');
-    addHtml({ component: modalInner, place: 'afterbegin', html: buildContent() })
+    addHtml({ component: modalInner, place: 'afterbegin', html: buildContent({ quizData, activeQuestion }) })
   }
 
   const reset = () => {
@@ -80,7 +52,7 @@ export function QuizModal(context) {
 
   const buildTestResult = () => {
     testTitle.textContent = 'Ваш результат:';
-    if (trueAnswersCounter == 0) {
+    if (trueAnswersCounter === 0) {
       testSubtitle.textContent = 'Могло быть и лучше';
     } else if (trueAnswersCounter > 0 && trueAnswersCounter < 4) {
       testSubtitle.textContent = 'Неплохо!';
@@ -96,7 +68,7 @@ export function QuizModal(context) {
   }
 
   const changeInput = ({ target }) => {
-    if (target.dataset.isTrue == 'true') {
+    if (target.dataset.isTrue === 'true') {
       target.classList.add('true');
       trueAnswersCounter++
     } else {
@@ -111,18 +83,21 @@ export function QuizModal(context) {
     modalNextBtn.classList.add('active');
   }
 
+  const finishQuiz = () => {
+    hide();
+    buildTestResult();
+    removeMissingItems();
+  }
+
   const clickModalNextBtn = () => {
     activeQuestion++;
     if (activeQuestion >= quizData.length) {
-      hide();
-      buildTestResult();
-      return removeMissingItems();
-    } else {
-      reset();
-      buildModalInner();
-      setElements();
-      bindEvents();
+      return finishQuiz();
     }
+    reset();
+    buildModalInner();
+    setElements();
+    bindEvents();
   }
 
   const bindEvents = () => {
@@ -130,7 +105,7 @@ export function QuizModal(context) {
       element.addEventListener('change', changeInput)
     });
 
-    modalNextBtn.addEventListener('click', clickModalNextBtn);
+    modalNextBtn && modalNextBtn.addEventListener('click', clickModalNextBtn);
   };
 
   const unbindEvents = () => {
@@ -154,11 +129,12 @@ export function QuizModal(context) {
     fetchData();
   };
 
-  init();
-
   const destroy = () => {
+    resetQuizData();
     unbindEvents();
   }
+
+  init();
 
   return {
     show,

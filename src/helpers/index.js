@@ -15,7 +15,7 @@ export const selectComponent = (component, context = null) =>
 
 export const selectComponents = (component = "*", context = null) =>
   qsa(
-    component == "*" ? "[data-component]" : `[data-component~="${component}"]`,
+    component === "*" ? "[data-component]" : `[data-component~="${component}"]`,
     context
   );
 
