@@ -266,7 +266,7 @@ body {
     left: 26px;
     background-color: lighten($green, 5%);
     color: $white;
-    transition: opacity .1s linear;
+    transition: opacity 0.1s linear;
 
     &::placeholder {
       color: $white;
@@ -959,28 +959,88 @@ body {
 
 /* Fabricants */
 
-
 .fabricants {
-  
-}
-
-.fabricants-inner {
-
+  margin-top: 90px;
 }
 
 .fabricants-images {
-
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
 }
 
 .fabricants-item {
+  display: flex;
+  justify-content: center;
+  width: 18%;
+  margin-right: 20px;
+  margin-bottom: 30px;
 
+  img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
 }
 
 .fabricants-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #009688;
 
+  button {
+    font-family: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #009688;
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
 }
 
+/* Wave */
 
+.wave {
+  display: none;
+  width: 75px;
+  height: 23px;
+  gap: 5px;
+  position: relative;
+}
+
+.wave-item {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: 2px solid $green2;
+
+  animation: wave 1s ease-in-out infinite;
+}
+
+.wave-item:nth-child(2) {
+  animation-delay: 100ms;
+}
+
+.wave-item:nth-child(3) {
+  animation-delay: 200ms;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(45%);
+  }
+
+  50% {
+    transform: translateY(-45%);
+  }
+}
 
 /* Helpers */
 
@@ -990,6 +1050,10 @@ body {
 
 .db {
   display: block;
+}
+
+.df {
+  display: flex;
 }
 
 .dn {
