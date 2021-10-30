@@ -1,38 +1,38 @@
 export const FabricantsItems = [
   {
-    link: 'https://disney.ru/ook',
+    link: "https://disney.ru/ook",
     image: {
-      src: 'https://i.ibb.co/MhX95Tt/1.png',
-      alt: 'Производитель'
-    }
+      src: "https://i.ibb.co/vvCMJw9/image-10.png",
+      alt: "Производитель",
+    },
   },
   {
-    link: 'https://disney.ru/ook',
+    link: "https://disney.ru/ook",
     image: {
-      src: 'https://i.ibb.co/Rj5FbrY/2.png',
-      alt: 'Производитель'
-    }
+      src: "https://i.ibb.co/0tgnxyV/image-11.png",
+      alt: "Производитель",
+    },
   },
   {
-    link: 'https://disney.ru/ook',
+    link: "https://disney.ru/ook",
     image: {
-      src: 'https://i.ibb.co/WyPVksW/3.png',
-      alt: 'Производитель'
-    }
+      src: "https://i.ibb.co/q7r28Dc/image-12.png",
+      alt: "Производитель",
+    },
   },
   {
-    link: 'https://disney.ru/ook',
+    link: "https://disney.ru/ook",
     image: {
-      src: 'https://i.ibb.co/ck9Q9nX/4.png',
-      alt: 'Производитель'
-    }
+      src: "https://i.ibb.co/7nFtLkT/image-12-1.png",
+      alt: "Производитель",
+    },
   },
   {
-    link: 'https://disney.ru/ook',
+    link: "https://disney.ru/ook",
     image: {
-      src: 'https://i.ibb.co/Rj5FbrY/2.png',
-      alt: 'Производитель'
-    }
+      src: "https://i.ibb.co/55JTVSs/image-13.png",
+      alt: "Производитель",
+    },
   },
 ];
 
