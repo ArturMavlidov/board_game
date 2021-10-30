@@ -5,20 +5,10 @@ export default function fabricants(context) {
   const fabricantsBtn = selectRole('fabricants-btn');
   const wave = selectRole('wave');
   let fabricantsItems;
-  let fabricantsContainer;
-  let loading = false;
+  let fabricantsContainer = selectRole("fabricants-container");
 
   const setFabricantsItems = (FabricantsItems) => {
     fabricantsItems = FabricantsItems;
-  }
-
-
-  const setfabricantsContainer = () => {
-    fabricantsContainer = selectRole('fabricants-container');
-  }
-
-  const setLoading = (bool) => {
-    loading = bool;
   }
 
   const showAnimation = () => {
@@ -31,27 +21,6 @@ export default function fabricants(context) {
     fabricantsBtn.classList.remove('dn2');
   }
 
-  const fetchFabricantsItems = () => {
-    setLoading(true);
-    showAnimation();
-
-    getFabricantsItems()
-    .then((FabricantsItems) => {
-      setFabricantsItems(FabricantsItems);
-      buildFabricants();
-    })
-    .finally(() => {
-      setLoading(false);
-      hideAnimation();
-    })
-  }
-
-  const buildFabricantsContainer = () => (
-    `
-      <div class="fabricants-images" data-role="fabricants-container"></div>
-    `
-  )
-
   const buildFabricantsImages = item => (
     `
       <div class="fabricants-item"><a href="${item.link}"><img src="${item.image.src}" alt="${item.image.alt}"></a></div>
@@ -59,12 +28,23 @@ export default function fabricants(context) {
   )
 
   const buildFabricants = () => {
-    addHtml({ component: fabricantsBtn, place: 'beforebegin', html: buildFabricantsContainer() });
-    setfabricantsContainer();
     Array.isArray(fabricantsItems) && fabricantsItems.forEach(item => {
-      addHtml({ component: fabricantsContainer, place: 'afterbegin', html: buildFabricantsImages(item) });
+      addHtml({ component: fabricantsContainer, html: buildFabricantsImages(item) });
     })
   }
+
+  const fetchFabricantsItems = () => {
+    showAnimation();
+
+    getFabricantsItems()
+      .then((FabricantsItems) => {
+        setFabricantsItems(FabricantsItems);
+        buildFabricants();
+      })
+      .finally(() => {
+        hideAnimation();
+      });
+  };
 
   const bindEvents = () => {
     fabricantsBtn.addEventListener('click', fetchFabricantsItems);
