@@ -961,6 +961,10 @@ body {
 
 .fabricants {
   margin-top: 90px;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
 }
 
 .fabricants-images {
