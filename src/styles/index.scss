@@ -1047,6 +1047,36 @@ body {
   }
 }
 
+/* Footer */
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 25px;
+  background-color: #e0e0e0;
+
+  &-title {
+    font-size: 18px;
+  }
+
+  &-copyright {
+    font-size: 12px;
+    color: #828282;
+  }
+
+  &-links {
+    display: flex;
+    align-items: center;
+
+    &-item {
+      &:not(:last-child) {
+        margin-right: 19px;
+      }
+    }
+  }
+}
+
 /* Helpers */
 
 .white {
