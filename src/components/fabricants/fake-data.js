@@ -40,6 +40,6 @@ export const getFabricantsItems = () => {
   return new Promise((then) => {
     setTimeout(() => {
       then(FabricantsItems);
-    }, 500);
+    }, 1000);
   });
 };

@@ -4,6 +4,7 @@ import { selectRole, selectRoles } from '../../helpers';
 export default function mainSlider(context) {
   context.insertAdjacentHTML('afterbegin', '<div class="slider-line" data-role="slider-line"></div>');
   const sliderLine = selectRole('slider-line', context);
+  const wrapper = selectRole('wrapper');
   let sliderItem;
   let width;
   let count = 0;
@@ -12,6 +13,19 @@ export default function mainSlider(context) {
   let container = selectRole('container--sm');
   let points;
   let sliderNum;
+
+  const buildWrapper = () => {
+    wrapper.insertAdjacentHTML(
+      "afterbegin",
+      `<img  class="arrow-left dn2" src="assets/img/icons/arrow-right.svg" alt="" data-role="arrow-left">`
+    );
+
+    wrapper.insertAdjacentHTML(
+      "beforeend",
+      `<img class="arrow-right" src="assets/img/icons/arrow-right.svg" alt="" data-role="arrow-right">`
+    );
+  }
+
 
   const buildSliderItem = item => (
     `
@@ -49,6 +63,7 @@ export default function mainSlider(context) {
   }
 
   function init() {
+    buildWrapper();
     renderSlider();
     rollSlider();
     buildContainer();

@@ -40,13 +40,13 @@ function Header(context) {
     isOpenBurger ? closeBurger() : showBurger();
   });
 
-  const changeSearcherClass= () => {
+  const addSearcherClass= () => {
     input.classList.add('active');
   }
 
   const showSearcher = () => {
     input.classList.add('db');
-    window.requestAnimationFrame(changeSearcherClass)
+    window.requestAnimationFrame(addSearcherClass);
     searchIcon.classList.add('active');
     nav.classList.add('dn');
     isOpenSearcher = true;

@@ -3,7 +3,7 @@ import { getFabricantsItems } from './fake-data';
 
 export default function fabricants(context) {
   const fabricantsBtn = selectRole('fabricants-btn');
-  const wave = selectRole('wave');
+  const circle = selectRole('circle');
   let fabricantsItems;
   let fabricantsContainer = selectRole("fabricants-container");
 
@@ -12,12 +12,12 @@ export default function fabricants(context) {
   }
 
   const showAnimation = () => {
-    wave.classList.add('df');
+    circle.classList.add("db");
     fabricantsBtn.classList.add('dn2');
   }
 
   const hideAnimation= () => {
-    wave.classList.remove('df');
+    circle.classList.remove("db");
     fabricantsBtn.classList.remove('dn2');
   }
 
