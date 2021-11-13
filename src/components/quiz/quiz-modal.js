@@ -75,7 +75,6 @@ export function QuizModal(context) {
       target.classList.add('false');
     }
 
-    console.log(trueAnswersCounter);
     inputs.forEach(item => {
       item.setAttribute('disabled', 'disabled');
     });
@@ -98,6 +97,10 @@ export function QuizModal(context) {
     buildModalInner();
     setElements();
     bindEvents();
+    
+    if (activeQuestion == quizData.length - 1) {
+      modalNextBtn.innerHTML = 'Finish';
+    }
   }
 
   const bindEvents = () => {
