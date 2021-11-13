@@ -1,0 +1,49 @@
+.fabricants {
+  margin-top: 90px;
+
+  @media (max-width: 1200px) {
+    display: none;
+  }
+}
+
+.fabricants-images {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.fabricants-item {
+  display: flex;
+  justify-content: center;
+  width: 18%;
+  margin-right: 20px;
+  margin-bottom: 30px;
+
+  img {
+    display: block;
+    max-width: 100%;
+    object-fit: cover;
+  }
+}
+
+.fabricants-more {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #009688;
+
+  button {
+    font-family: inherit;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    color: #009688;
+    font-size: 16px;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

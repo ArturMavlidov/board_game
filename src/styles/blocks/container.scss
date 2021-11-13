@@ -1,0 +1,24 @@
+.container {
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+
+  &--sm {
+    width: 100%;
+    max-width: 1090px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  &--lg {
+    width: 100%;
+    max-width: 1154px;
+    padding: 0 10px;
+    margin: 0 auto;
+  }
+
+  &--modal {
+    width: 100%;
+    max-width: 495px;
+  }
+}

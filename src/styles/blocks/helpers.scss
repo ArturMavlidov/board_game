@@ -1,0 +1,21 @@
+.white {
+  color: #fff;
+}
+
+.db {
+  display: block;
+}
+
+.df {
+  display: flex;
+}
+
+.dn {
+  @media (max-width: 1164px) {
+    display: none;
+  }
+}
+
+.dn2 {
+  display: none;
+}
