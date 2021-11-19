@@ -64,9 +64,10 @@ function Header(context) {
     isOpenSearcher ? closeSearcher() : showSearcher();
   }
 
-  const clickUserName = () => {
-    userMenu.classList.toggle('active');
-  }
+  const clickUserName = (event) => {
+    userMenu.classList.toggle("active");
+    event.preventDefault();
+  };
 
   const closeUserMenu = ({ target }) => {
     if (!target.closest('.header-profile-name') && (!target.closest('.header-profile-menu'))) {

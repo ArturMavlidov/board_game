@@ -1,0 +1,26 @@
+.blog-menu {
+  height: 92px;
+
+  &:hover {
+    border: 1px solid #E0E0E0;
+
+    .menu-hidden {
+      display: block;
+    }
+  }
+
+  div {
+    padding: 5px;
+    background-color: #fff;
+    z-index: 1;
+
+    &:hover {
+      background-color: $green;
+      color: #fff;
+    }
+  }
+}
+
+.menu-hidden {
+  display: none;
+}

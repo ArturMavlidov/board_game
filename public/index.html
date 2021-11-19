@@ -72,6 +72,25 @@
       </symbol>
     </svg>
 
+    <svg style="display: none">
+      <symbol id="like" viewBox="0 0 32 30">
+        <path
+          d="M10.5285 11.8169H8.42209C8.15318 11.8169 7.88428 12.0343 7.88428 12.3387V21.5564C7.88428 21.8607 8.10837 22.0781 8.42209 22.0781H10.5285C10.8422 22.0781 11.0663 21.8607 11.0663 21.5564V12.2952C11.0663 12.0343 10.7974 11.8169 10.5285 11.8169Z"
+        />
+        <path
+          d="M18.6845 11.8169L19.2223 10.3386C19.6256 9.33855 19.3567 7.77327 18.2811 7.20803C17.9226 7.03411 17.4296 6.94715 17.071 7.03411C16.8469 7.07759 16.6677 7.20803 16.5332 7.42543C16.3988 7.64283 16.4436 7.90371 16.3988 8.16459C16.2643 8.77331 15.9506 9.38203 15.5024 9.81683C14.6957 10.5995 12.1411 12.817 12.1411 12.817V21.0347H20.9701C22.1802 21.0347 22.9421 19.7303 22.3595 18.7302C23.0766 18.2954 23.3007 17.3823 22.8973 16.6867C23.6144 16.2519 23.8385 15.3388 23.4351 14.6431C24.6452 13.904 24.2418 12.0343 22.8077 11.8169C22.6732 11.7734 18.6845 11.8169 18.6845 11.8169Z"
+        />
+      </symbol>
+    </svg>
+
+    <svg style="display: none">
+      <symbol id="favourites" viewBox="0 0 29 27">
+        <path
+          d="M20.0614 6.90717V19.7653L15.5753 16.0225L14.6907 15.2981L13.8061 16.0225L9.31995 19.7653V6.90717H20.0614ZM21.3883 5.5791H7.8667V22.5421L14.6275 16.928L21.3883 22.5421V5.5791Z"
+        />
+      </symbol>
+    </svg>
+
     <header class="header" data-component="header">
       <div class="container">
         <div class="header-top-0">
@@ -229,5 +248,97 @@
         </a>
       </div>
     </footer>
+
+    <header class="header header--new-page" data-component="header">
+      <div class="container">
+        <div class="header-top-0">
+          <div class="header-left">
+            <div class="header-title" data-role="header/title">
+              Бюро настолок
+            </div>
+            <div class="header-burger" data-role="header/burger">
+              <span></span>
+            </div>
+            <nav class="header-nav" data-role="header/nav">
+              <a class="header-nav-item" href="catalog.html">Каталог</a>
+              <a class="header-nav-item" href="blog.html">Блог</a>
+              <a class="header-nav-item" href="projects.html">Наши проекты</a>
+              <a class="header-nav-item" href="flea-market.html">Барахолка</a>
+              <a class="header-nav-item" href="about.html">О нас</a>
+            </nav>
+          </div>
+
+          <div class="header-right">
+            <input
+              class="header-input"
+              type="text"
+              placeholder="Поиск"
+              data-role="header/input"
+            />
+
+            <div class="header-icons">
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item" id="search-icon">
+                  <use xlink:href="#search"></use>
+                </svg>
+              </a>
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item">
+                  <use xlink:href="#mark"></use>
+                </svg>
+              </a>
+              <a href="#" class="header-icons-link">
+                <svg class="header-icons-item">
+                  <use xlink:href="#notifications"></use>
+                </svg>
+              </a>
+            </div>
+
+            <div class="header-profile">
+              <div class="header-profile-avatar">
+                <img src="assets/img/avatar.jpg" alt="" />
+              </div>
+              <div class="header-profile-content">
+                <div class="header-profile-name" data-role="header/userName">
+                  <a href="#">Иван Иваныч</a>
+                </div>
+                <div class="header-profile-menu" data-role="header/userMenu">
+                  <a class="header-profile-link" href="#">Личный кабинет</a>
+                  <a class="header-profile-link" href="#"
+                    >Панель администратора</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- /.header-right -->
+        </div>
+        <!-- /.header-top-0 -->
+      </div>
+    </header>
+
+    <div class="container--sm" data-role="container--sm">
+      <div class="wrapper" data-role="wrapper">
+        <div data-component="main-slider" class="slider"></div>
+      </div>
+    </div>
+
+    <div class="blog">
+      <div class="container--lg">
+        <div class="blog-header">
+          <div class="blog-name">Статьи</div>
+          <div class="blog-sorting">
+            <nav class="blog-menu">
+              <div data-role="new-first">по дате (сначала новые)</div>
+              <div class="menu-hidden" data-role="old-first">по дате (сначала старые)</div>
+              <div class="menu-hidden" data-role="popularity-first">по популярности</div>
+            </nav>
+          </div>
+        </div>
+
+        <div class="blog-wrapper" data-component="blog">
+        </div>
+      </div>
+    </div>
   </body>
 </html>

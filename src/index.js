@@ -1,5 +1,5 @@
 import './styles/index.scss';
-import { Header, MainSlider, Categories, Quiz, Fabricants } from './components';
+import { Header, MainSlider, Categories, Quiz, Fabricants, Blog } from './components';
 import { registerComponent } from './helpers';
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
     'main-slider': MainSlider,
     'categories': Categories,
     'quiz': Quiz,
-    'fabricants': Fabricants
+    'fabricants': Fabricants,
+    'blog': Blog
   });
 });
+

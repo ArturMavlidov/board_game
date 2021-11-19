@@ -10,6 +10,10 @@ export const selectRole = (role, context = null) =>
 export const selectRoles = (selector, context = null) =>
   qsa(`[data-role~="${selector}"]`, context);
 
+export const selectId = (id, context = null) =>
+  qs(`[data-id~="${id}"]`, context);
+
+
 export const selectComponent = (component, context = null) =>
   qs(`[data-component~="${component}"]`, context);
 
@@ -25,8 +29,13 @@ export const addHtml = ({ component, place='beforeend', html }) => {
 
 export const registerComponent = (obj) => {
   Object.keys(obj).forEach((key) => {
-    const element = selectComponent(key);
+    const element = selectComponents(key);
     const component = obj[key];
-    element && component(element);
+    element.forEach(item => {
+      item && component(item)
+    })
   });
 };
+
+export const closestRole = (element, role) =>
+  element.closest(`[data-role~="${role}"]`);
